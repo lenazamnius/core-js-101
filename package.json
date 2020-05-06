@@ -12,6 +12,8 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
     "mocha": "^6.2.2"
   },
   "repository": {
