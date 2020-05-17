@@ -326,8 +326,21 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const obj = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
+  };
+
+  return arr.sort((val1, val2) => obj[val1] - obj[val2]);
 }
 
 /**
@@ -550,8 +563,8 @@ function selectMany(arr, childrenSelector) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, indexes) {
+  return indexes.reduce((val, idx) => val[idx], arr);
 }
 
 
@@ -573,8 +586,13 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  if (arr.length <= 1) return arr;
+  const mid = Math.floor(arr.length / 2);
+  const tail = (arr.length % 2 !== 0) ? arr.slice(mid + 1) : arr.slice(mid);
+  const head = arr.slice(0, mid);
+
+  return (arr.length % 2 !== 0) ? [...tail, arr[mid], ...head] : [...tail, ...head];
 }
 
 
